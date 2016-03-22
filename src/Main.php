@@ -165,6 +165,16 @@
           else
           {
 
+            unset($this->bans[$player_name]);
+
+            $this->cfg->set("banned_users", $this->bans);
+
+            $this->cfg->save();
+
+            $sender->sendMessage(TF::GREEN . "Successfully pardoned " . $player_name . ".");
+
+            return true;
+
           }
 
         }

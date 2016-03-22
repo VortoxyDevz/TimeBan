@@ -207,7 +207,7 @@
 
       $player = $event->getPlayer();
 
-      $player_name = $player->getPlayer();
+      $player_name = $player->getName();
 
       $player_client_id = $player->getClientId();
 

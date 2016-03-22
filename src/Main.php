@@ -157,7 +157,7 @@
           if(!(isset($this->bans[$player_name])))
           {
 
-            $sender->sendMessage(TF::RED . "Player " . $player_name . " is not banned.");
+            $sender->sendMessage(TF::RED . "Player " . $player_name . " is not timebanned.");
 
             return true;
 
@@ -178,6 +178,23 @@
           }
 
         }
+
+      }
+      else if(strtolower($cmd->getName()) === "timebanlist")
+      {
+
+        $banned_users = $this->cfg->get("banned_users");
+
+        $sender->sendMessage(TF::GREEN . "All TimeBanned users: ");
+
+        foreach($this->bans as $key => $value)
+        {
+
+          $sender->sendMessage(TF::GREEN . $key . ", ");
+
+        }
+
+        return true;
 
       }
 

@@ -103,13 +103,25 @@
               else
               {
 
-                $time = strtotime("+{$time} minutes");
+                $exactTime = strtotime("+{$time} minutes");
 
                 unset($args[0]);
 
                 unset($args[2]);
 
                 $reason = implode(" ", $args);
+
+                $this->bans[$player_name] = $exactTime;
+
+                $this->cfg->set("banned_users", $this->bans);
+
+                $this->cfg->save();
+
+                $player->close("", $reason);
+
+                $sender->sendMessage(TF::GREEN . "Successfully banned " . $player_name . " for " . $time . " minute(s).");
+
+                return true;
 
               }
 

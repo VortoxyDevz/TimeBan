@@ -1,0 +1,27 @@
+name: TimeBan
+version: 1.0.0
+author: VoretoxyDevs
+api:
+- 1.0.0
+- 2.0.0
+main: TimeBan\Main
+commands:
+  timeban:
+    usage: "/timeban <player> <reason> <time>"
+    description: TimeBan A Player.
+    permission: timeban.command
+  timepardon:
+    usage: "/timepardon <player>"
+    description: Pardon A Player From TimeBan.
+    permission: timeban.command.pardon
+  timebanlist:
+    usage: "/timebanlist"
+    description: List Of All TimeBanned Players.
+    permission: timeban.command.banlist
+permissions:
+  timeban.command:
+    default: op
+  timeban.command.pardon:
+    default: op
+  timeban.command.banlist:
+    default: op

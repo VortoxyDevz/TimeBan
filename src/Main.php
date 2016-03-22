@@ -103,6 +103,14 @@
               else
               {
 
+                $time = strtotime("+{$time} minutes");
+
+                unset($args[0]);
+
+                unset($args[2]);
+
+                $reason = implode(" ", $args);
+
               }
 
             }

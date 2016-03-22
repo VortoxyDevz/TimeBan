@@ -218,7 +218,7 @@
 
         $ban_time = $this->bans[$player_name];
 
-        if($ban_time - time() <= 0)
+        if(($ban_time - time()) <= 0)
         {
 
           unset($this->bans[$player_name]);
@@ -227,7 +227,7 @@
         else
         {
 
-          $player->close("", "You are still TimeBanned. You'll be unbanned in " . $ban_time - time() . " second(s).");
+          $player->close("", "You are still TimeBanned. You'll be unbanned in " . ($ban_time - time()) . " second(s).");
 
         }
 

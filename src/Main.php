@@ -14,6 +14,8 @@
   class Main extends PluginBase implements Listener
   {
 
+    private $bans = array();
+
     public function dataPath()
     {
 
@@ -33,10 +35,32 @@
 
       $this->server()->getPluginManager()->registerEvents($this, $this);
 
+      @mkdir($this->dataPath());
+
+      $this->cfg = new Config($this->dataPath() . "banned-users.txt", Config::ENUM, array("banned_users" => array()));
+
     }
 
     public function onCommand(CommandSender $sender, Command $cmd, $label, array $args)
     {
+
+      if(strtolower($cmd->getName()) === "timeban")
+      {
+
+        if(!(isset($args[0])))
+        {
+
+          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /timeban <player> <reason> <time(In Seconds)>");
+
+          return true;
+
+        }
+        else
+        {
+
+        }
+
+      }
 
     }
 

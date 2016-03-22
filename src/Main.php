@@ -140,6 +140,12 @@
 
       $player = $event->getPlayer();
 
+      $player_name = $player->getPlayer();
+
+      $player_client_id = $player->getClientId();
+
+      $banned_users = $this->cfg->get("banned_users");
+
     }
 
   }

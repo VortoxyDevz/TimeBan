@@ -10,14 +10,17 @@ commands:
     usage: "/timeban <player> <reason> <time>"
     description: TimeBan A Player.
     permission: timeban.command
+    aliases: [tb]
   timepardon:
     usage: "/timepardon <player>"
     description: Pardon A Player From TimeBan.
     permission: timeban.command.pardon
+    aliases: [tp]
   timebanlist:
     usage: "/timebanlist"
     description: List Of All TimeBanned Players.
     permission: timeban.command.banlist
+    aliases: [tbl]
 permissions:
   timeban.command:
     default: op

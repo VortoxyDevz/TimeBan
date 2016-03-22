@@ -138,6 +138,8 @@
     public function onPreLogin(PlayerPreLoginEvent $event)
     {
 
+      $player = $event->getPlayer();
+
     }
 
   }

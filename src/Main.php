@@ -58,6 +58,23 @@
         else
         {
 
+          $name = $args[0];
+
+          $player = $this->server()->getPlayer($name);
+
+          if($player === null)
+          {
+
+            $sender->sendMessage(TF::RED . "Player " . $name . " is not online.");
+
+            return true;
+
+          }
+          else
+          {
+
+          }
+
         }
 
       }

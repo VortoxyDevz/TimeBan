@@ -82,7 +82,7 @@
             if(isset($this->bans[$player_name]))
             {
 
-              $sender->sendMessage(TF::RED . "Player " . $player_name . " is already banned.");
+              $sender->sendMessage(TF::RED . "Player " . $player_name . " is already TimeBanned.");
 
               return true;
 
@@ -119,7 +119,7 @@
 
                 $player->close("", $reason);
 
-                $sender->sendMessage(TF::GREEN . "Successfully banned " . $player_name . " for " . $time . " minute(s).");
+                $sender->sendMessage(TF::GREEN . "Successfully TimeBanned " . $player_name . " for " . $time . " minute(s).");
 
                 return true;
 
@@ -157,7 +157,7 @@
           if(!(isset($this->bans[$player_name])))
           {
 
-            $sender->sendMessage(TF::RED . "Player " . $player_name . " is not timebanned.");
+            $sender->sendMessage(TF::RED . "Player " . $player_name . " is not TimeBanned.");
 
             return true;
 
@@ -185,14 +185,16 @@
 
         $banned_users = $this->cfg->get("banned_users");
 
-        $sender->sendMessage(TF::GREEN . "All TimeBanned users: ");
+        $string = "";
 
         foreach($this->bans as $key => $value)
         {
 
-          $sender->sendMessage(TF::GREEN . $key . ", ");
+          $string .= $key . ", ";
 
         }
+
+        $sender->sendMessage(TF::GREEN . "TimeBanned Players: " . $string . ".");
 
         return true;
 
@@ -210,6 +212,26 @@
       $player_client_id = $player->getClientId();
 
       $banned_users = $this->cfg->get("banned_users");
+
+      if(isset($this->bans[$player_name]))
+      {
+
+        $ban_time = $this->bans[$player_name];
+
+        if($ban_time - time() <= 0)
+        {
+
+          unset($this->bans[$player_name]);
+
+        }
+        else
+        {
+
+          $player->close("", "You are still TimeBanned. You'll be unbanned in " . $ban_time - time() . " second(s).");
+
+        }
+
+      }
 
     }
 

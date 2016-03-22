@@ -229,6 +229,8 @@
 
           $player->close("", "You are still TimeBanned. You'll be unbanned in " . ($ban_time - time()) . " second(s).");
 
+          $event->setCancelled();
+
         }
 
       }

@@ -50,7 +50,7 @@
         if(!(isset($args[0])))
         {
 
-          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /timeban <player> <reason> <time(In Seconds)>");
+          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /timeban <player> <reason> <time(In Minutes)>");
 
           return true;
 

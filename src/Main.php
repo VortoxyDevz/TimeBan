@@ -132,6 +132,23 @@
         }
 
       }
+      else if(strtolower($cmd->getName()) === "timepardon")
+      {
+
+        if(!(isset($args[0])))
+        {
+
+          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /timepardon <player>.");
+
+          return true;
+
+        }
+        else
+        {
+
+        }
+
+      }
 
     }
 

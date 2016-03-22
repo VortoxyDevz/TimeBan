@@ -50,7 +50,7 @@
         if(!(isset($args[0])))
         {
 
-          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /timeban <player> <reason> <time(In Minutes)>");
+          $sender->sendMessage(TF::RED . "Error: not enough args. Usage: /timeban <player> <reason> <time(In Minutes)>.");
 
           return true;
 
@@ -89,6 +89,21 @@
             }
             else
             {
+
+              $time = $args[2];
+
+              if(!(is_numeric($time)))
+              {
+
+                $sender->sendMessage(TF::RED . "Please specify a valid time(In Minutes).");
+
+                return true;
+
+              }
+              else
+              {
+
+              }
 
             }
 

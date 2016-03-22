@@ -82,7 +82,7 @@
             if(isset($this->bans[$player_name]))
             {
 
-              $sender->sendMessage(TF::RED . $player_name . " is already banned.");
+              $sender->sendMessage(TF::RED . "Player " . $player_name . " is already banned.");
 
               return true;
 
@@ -145,6 +145,27 @@
         }
         else
         {
+
+          $name = $args[0];
+
+          $player = $this->server()->getOfflinePlayer($name);
+
+          $player_name = $player->getName();
+
+          $banned_users = $this->cfg->get("banned_users");
+
+          if(!(isset($this->bans[$player_name])))
+          {
+
+            $sender->sendMessage(TF::RED . "Player " . $player_name . " is not banned.");
+
+            return true;
+
+          }
+          else
+          {
+
+          }
 
         }
 

@@ -73,6 +73,21 @@
           else
           {
 
+            $player_name = $player->getName();
+
+            $player_client_id = $player->getClientId();
+
+            $banned_users = $this->cfg->get("banned_users");
+
+            if(isset($this->bans[$player_name]))
+            {
+
+              $sender->sendMessage(TF::RED . $player_name . " is already banned.");
+
+              return true;
+
+            }
+
           }
 
         }

@@ -1,2 +1,2 @@
 # TimeBan
-TimeBan PocketMine Plugin.
+TimeBan PocketMine Plugin. Made by VortoxyDevs!

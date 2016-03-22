@@ -7,7 +7,7 @@ api:
 main: TimeBan\Main
 commands:
   timeban:
-    usage: "/timeban <player> <reason> <time>"
+    usage: "/timeban <player> <time(In Minutes)> <reason>"
     description: TimeBan A Player.
     permission: timeban.command
     aliases: [tb]

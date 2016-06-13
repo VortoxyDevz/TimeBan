@@ -79,7 +79,7 @@
 
             $banned_users = $this->cfg->get("banned_users");
 
-            if(isset($this->bans[$player_name]))
+            if(isset($this->bans[$player_client_id]))
             {
 
               $sender->sendMessage(TF::RED . "Player " . $player_name . " is already TimeBanned.");
@@ -111,7 +111,7 @@
 
                 $reason = implode(" ", $args);
 
-                $this->bans[$player_name] = $exactTime;
+                $this->bans[$player_client_id] = $exactTime;
 
                 $this->cfg->set("banned_users", $this->bans);
 
@@ -152,9 +152,11 @@
 
           $player_name = $player->getName();
 
+          $player_client_id = $player->getClientId();
+
           $banned_users = $this->cfg->get("banned_users");
 
-          if(!(isset($this->bans[$player_name])))
+          if(!(isset($this->bans[$player_client_id])))
           {
 
             $sender->sendMessage(TF::RED . "Player " . $player_name . " is not TimeBanned.");
@@ -165,7 +167,7 @@
           else
           {
 
-            unset($this->bans[$player_name]);
+            unset($this->bans[$player_client_id]);
 
             $this->cfg->set("banned_users", $this->bans);
 
@@ -213,15 +215,15 @@
 
       $banned_users = $this->cfg->get("banned_users");
 
-      if(isset($this->bans[$player_name]))
+      if(isset($this->bans[$player_client_id]))
       {
 
-        $ban_time = $this->bans[$player_name];
+        $ban_time = $this->bans[$player_client_id];
 
         if(($ban_time - time()) <= 0)
         {
 
-          unset($this->bans[$player_name]);
+          unset($this->bans[$player_client_id]);
 
         }
         else
